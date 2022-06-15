@@ -23,13 +23,13 @@ Use imshow to show the video
 
 ### Step 5:
 End the program and close the output video windows by pressing 'q'.
+
 ## Program:
 ``` Python
 ### Developed By:Kumaran.B
 ### Register No:212220230026
 
 ## i) Write the frame as JPG file
-
 import cv2
 import numpy as np
 v1=cv2.VideoCapture(0)
@@ -40,10 +40,6 @@ while(True):
 v1.release()
 cv2.destroyAllWindows()
 
-
-
-
-
 ## ii) Display the video
 v1=cv2.VideoCapture(0)
 while(True):
@@ -53,9 +49,6 @@ while(True):
         break
 v1.release() 
 cv2.destroyAllWindows()
-
-
-
 
 ## iii) Display the video by resizing the window
 v2=cv2.VideoCapture(0)
@@ -69,32 +62,25 @@ while True:
     image[:height//2, :width//2] = smaller_frame
     image[height//2:, :width//2] = smaller_frame
     image[:height//2, width//2:] = smaller_frame
-    image[height//2:, width//2:] = smaller_frame
-    
+    image[height//2:, width//2:] = smaller_frame   
     cv2.imshow("kum",image)
     if cv2.waitKey(1)==ord('k'):
         break
 v2.release() 
 cv2.destroyAllWindows()
 
-
-
-
 ## iv) Rotate and display the video
-
 v2=cv2.VideoCapture(0)
 while True:
     ret,frame=v2.read()
     width=int(v2.get(3))
-    height=int(v2.get(4))
-    
+    height=int(v2.get(4))   
     image=np.zeros(frame.shape, np.uint8)
     smaller_frame=cv2.resize(frame,(0,1),fx=0.5,fy=0.5)
     image[:height//2, :width//2] = cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180)
     image[height//2:, :width//2] = cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180)
     image[:height//2, width//2:] = cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180)
     image[height//2:, width//2:] = cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180)
-    
     cv2.imshow("kum",image)
     if cv2.waitKey(1)==ord('k'):
         break
